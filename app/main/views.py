@@ -1,6 +1,10 @@
-from flask import render_template
+from unicodedata import category
+from urllib import request
+from flask import render_template,redirect,request
 from . import mainBlueprint
-from requests import get_news
+from ..requests import get_news,get_sources
+
+
 
 
 
@@ -15,21 +19,12 @@ def index():
     return render_template('index.html', title =title, articles =news)
 
 
-@mainBlueprint.route('/v2/everything')
-def everything():
+@mainBlueprint.route('/sources')
+def sources():
+    news =get_sources()
     
-    pass
+    return render_template('news.html',sources=news)
+    
 
-@mainBlueprint.route('/v2/top-headlines')
-def top_headlines():
-    pass
-
-@mainBlueprint.route('/v2/top-headlines/sources')
-def source():
-    pass
-
-@mainBlueprint.route('/everything')
-def search():
-    pass
     
     
