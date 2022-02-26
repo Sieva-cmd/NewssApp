@@ -40,19 +40,19 @@ def get_news():
     return news_results
 
 
-# def process_results(news_list):
-#     news_results =[]
-#     for news_item in news_list:
-#         title =news_item.get('title')
-#         description =news_item.get('description')
-#         urlToImage =news_item.get('urlToImage')
-#         content =news_item.get('content')
-#         publishedAt =news_item('publishedAt')
+def process_results(news_list):
+    news_results =[]
+    for news_item in news_list:
+        title =news_item.get('title')
+        description =news_item.get('description')
+        urlToImage =news_item.get('urlToImage')
+        content =news_item.get('content')
+        publishedAt =news_item('publishedAt')
         
-#         news_object =Articles(title,description,urlToImage,content,publishedAt)
-#         news_results.append(news_object)
+        news_object =Articles(title,description,urlToImage,content,publishedAt)
+        news_results.append(news_object)
         
-#     return news_results    
+    return news_results    
         
          
     
