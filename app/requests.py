@@ -7,12 +7,14 @@ from .models import Articles,News_source
 api_key =None
 #Getting base_url
 base_url =None
+base_source_url =None
 
 def configure_request(app):
-    global api_key,base_url
+    global api_key,base_url,base_source_url
     
     api_key =app.config['NEWS_API_KEY']
     base_url =app.config['NEWS_API_BASE_URL']
+    base_source_url =app.config['NEWS_SOURCE_BASE_URL']
     
     
     # api_key =NewsApiClient(api_key='NEWS_API_KEY')
@@ -56,8 +58,8 @@ def process_results(news_list):
          
 def get_sources():
     
-    get_news_url =base_url.format(*api_key)
-    get_sources_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=88678b63f3da49bc968e8956f7a783bd'  
+    get_sources_url =base_source_url.format(api_key)
+    
     
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
