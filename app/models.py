@@ -12,14 +12,13 @@ class Articles:
     News class to define News objects
     """
     
-    def __init__(self,title,urlToImage,description,publishedAt,url):
+    def __init__(self,title,urlToImage,description,content,publishedAt,url):
         self.title =title
         self.urlToImage =urlToImage
         self.description =description
+        self.content=content
         self.publishedAt =publishedAt
         self.url =url
         
-class Search:
-    def __init__(self,title,description,content) -> None:
-        pass        
+
         

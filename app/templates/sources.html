@@ -1,21 +1,21 @@
 {%extends 'base.html' %}
 {%block content%}
-   <h1 class="text-center">News sources</h1>
-   <ul>
-       {%for source of sources%}
-       <div class="row row-cols-md-1 g-4 d-flex">
-           <div class="col p-3">
-               <div class="card p-3">
-                   <div class="card-body">
-                       <h3 class="card-title">
-                           {{ source.name }}
-                       </h3>
-                       <p class="card-text">{{ source.description }}</p>
-                       <button class="btn btn-success p-2"><a href="{{ source.url }}">Read more</a></button>
-                   </div>
-               </div>
-           </div>
-       </div>
-       {%endfor%}
-   </ul>
+        <h1 class="text-center">News sources</h1>
+        <ul>
+            {%for source of sources%}
+                    <div class="row row-cols-md-1 g-4 d-flex">
+                        <div class="col p-3">
+                            <div class="card p-3">
+                                <div class="card-body">
+                                    <h3 class="card-title">
+                                        {{ source.name }}
+                                    </h3>
+                                    <p class="card-text">{{ source.description }}</p>
+                                    <button class="btn btn-success p-2"><a href="{{ source.url }}">Read more</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            {%endfor%}
+        </ul>
 {%endblock%}

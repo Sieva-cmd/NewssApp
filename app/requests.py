@@ -1,7 +1,6 @@
 
 import urllib.request,json
-from .models import Articles
-from .models import News_source
+from .models import Articles,News_source
 # from newsapi import NewsApiClient
 
 #getting api_key
@@ -25,7 +24,7 @@ def configure_request(app):
     # sources = newsapi.get_sources()
     
 def get_news():
-    get_news_url =  base_url.format(*api_key)
+    get_news_url =  base_url.format(api_key)
     
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data =url.read()
@@ -48,40 +47,41 @@ def process_results(news_list):
         urlToImage =news_item.get('urlToImage')
         content =news_item.get('content')
         publishedAt =news_item.get('publishedAt')
+        url =news_item.get('url')
         
-        news_object =Articles(title,description,urlToImage,content,publishedAt)
+        news_object =Articles(title,description,urlToImage,content,publishedAt,url)
         news_result.append(news_object)
         
     return news_result   
-        
-def get_sources():
+         
+# def get_sources():
     
-    get_news_url =base_url.format(*api_key)
-    get_sources_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=88678b63f3da49bc968e8956f7a783bd'  
+#     get_news_url =base_url.format(*api_key)
+#     get_sources_url ='https://newsapi.org/v2/top-headlines/sources?apiKey=88678b63f3da49bc968e8956f7a783bd'  
     
-    with urllib.request.urlopen(get_news_url):
-        get_sources_data = get_sources_url.read()
-        get_source_response =json.loads(get_sources_data)
-        source_results =None
-        if get_source_response['sources']:
-            source_results_list =get_source_response['sources']
-            source_results=process_source_results(source_results_list)
-    return source_results
+#     with urllib.request.urlopen(get_sources_url) as url:
+#         get_sources_data = url.read()
+#         get_source_response =json.loads(get_sources_data)
+#         source_results =None
+#         if get_source_response['sources']:
+#             source_results_list =get_source_response['sources']
+#             source_results=process_source_results(source_results_list)
+#     return source_results
 
 
-def process_source_results(source_list):
-    source_result =[]
+# def process_source_results(source_list):
+#     source_result =[]
     
-    for source_item in source_list:
-        name =source_item.get('name')
-        description =source_item.get('description')
-        url =source_item.get('url')
+#     for source_item in source_list:
+#         name =source_item.get('name')
+#         description =source_item.get('description')
+#         url =source_item.get('url')
         
-        source_object =News_source(name,description,url)
-        source_result.append(source_object)
+#         source_object =News_source(name,description,url)
+#         source_result.append(source_object)
         
         
-    return source_result    
+#     return source_result    
                 
         
                
