@@ -17,15 +17,15 @@ class SourcesTest(unittest.TestCase):
         self.assertTrue(isinstance(self.new_source,News_source))    
     
     
-    def test_init(self):
-        """
-        Test to check if object has been initialized correctly
-        """
-        self.assertEqual(self.new_source.name, 'ABC News')   
+    # def test_init(self):
+    #     """
+    #     Test to check if object has been initialized correctly
+    #     """
+    #     self.assertEqual(self.new_source.name, 'ABC News')   
         
-        self.assertEqual(self.new_source.description,'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.')
+    #     self.assertEqual(self.new_source.description,'Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.')
 
-        self.assertEqual(self.new_source.url,'https://abcnews.go.com')     
+    #     self.assertEqual(self.new_source.url,'https://abcnews.go.com')     
         
              
         
