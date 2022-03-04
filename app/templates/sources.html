@@ -1,5 +1,7 @@
 {%extends 'base.html' %}
+
 {%block content%}
+    <div class="container">
         <h1 class="text-center">News sources</h1>
         <ul>
             {%for source in sources%}
@@ -18,4 +20,6 @@
                     </div>
             {%endfor%}
         </ul>
+    </div>
+       
 {%endblock%}
